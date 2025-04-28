@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-image: url('https://www.shutterstock.com/image-illustration/eid-mubarak-greeting-crescent-stars-260nw-1694232328.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Envelope Container */
+  .envelope {
+    position: relative;
+    width: 360px;
+    height: 220px;
+    perspective: 1000px;
+    cursor: pointer;
+  }
+  
+  /* Envelope Flaps */
+  .flap {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background: #c1a57b;
+    transition: all 1s ease, opacity 0.5s ease;
+    z-index: 2;
+  }
+  
+  .flap-top {
+    top: 0;
+    transform-origin: top;
+    border-bottom: 5px solid #a88e6c;
+  }
+  
+  .flap-bottom {
+    bottom: 0;
+    border-top: 5px solid #a88e6c;
+  }
+  
+  .flap.fade-out {
+    opacity: 0;
+  }
+  
+  /* Invitation Card */
+  .card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateX(90deg);
+    transform-origin: bottom;
+    width: 340px;
+    background: transparent;
+    border-radius: 15px;
+    padding: 2rem;
+    z-index: 1;
+    box-shadow: 0 8px 16px #c2a273;
+    text-align: center;
+    opacity: 0;
+    transition: all 1s ease;
+  }
+  
+  /* Card Content Styling */
+  .eid-mubarak {
+    font-size: 2.7rem;
+    font-weight: 700;
+    color: #2cbbc5;
+    text-shadow: 2px 2px 2px white;
+    margin-bottom: 1rem;
+    animation: bounce 2s infinite;
+  }
+  
+  .invite-heading {
+    font-size: 1.5rem;
+    color:#c2a273;
+    margin-bottom: 0.5rem;
+  }
+  
+  .invite-text {
+    font-weight: 600;
+    color: white;
+    text-shadow: 1px 2px 3px  #ddba97;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .details {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #f7f0f0;
+  }
+  
+  button {
+    padding: 0.8rem 1.8rem;
+    background: #2cbbc5 ;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background: white;
+    color: #2cbbc5;
+    border: 1px solid #2cbbc5;
+  }
+  
+  /* Animations */
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  /* Show Card on Envelope Open */
+  .envelope.open .flap-top {
+    transform: rotateX(-180deg);
+  }
+  
+  .envelope.open .card {
+    transform: translate(-50%, -50%) rotateX(0);
+    opacity: 1;
+  }
+  
